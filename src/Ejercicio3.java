@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import Clases.Person;
+import java.util.ArrayList;
+import java.util.Collections;
 
-public class Main {
+public class Ejercicio3 {
     public static void main(String[] args) {
 
         ArrayList<Person> Personas = new ArrayList<>();
@@ -18,13 +16,10 @@ public class Main {
         Person personas3 = new Person("David", "Garcia", 2001);
         Personas.add(personas3);
 
-        List<Person> Menor = Personas.stream()
-                .filter(person -> person.getBirthYear() < 1970)
-                .collect(Collectors.toList());
+        Collections.sort(Personas, (p1, p2) -> p1.getFirstName().compareTo(p2.getFirstName()));
 
-        System.out.println("Personas nacidas antes de 1970: ");
-        Menor.forEach(person ->
-                System.out.println(person.getFirstName() + " " + person.getLastName())
-        );
+        Personas.forEach(person -> System.out.println(person.getFirstName() + " " + person.getLastName()));
+
+
     }
 }
